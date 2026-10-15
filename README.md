@@ -55,7 +55,7 @@ Guide détaillé : [guide de lancement](projet_portique_%20contenaire_claude/doc
 Depuis la racine :
 
 ```powershell
-.\.venv\Scripts\python.exe -m pip install -r "projet_portique_ contenaire_claude/vision/requirements-yolo.txt"
+.\.venv\Scripts\python.exe -m pip install -r "projet_portique_ contenaire_claude/vision/requirements.txt" -r "projet_portique_ contenaire_claude/vision/requirements-yolo.txt"
 ```
 
 Le modèle utilisé par l’application est inclus dans `projet_portique_ contenaire_claude/vision/models/portique-faces-seg.pt`, avec sa fiche de validation. Il distingue le dessus, le côté long et le côté court. La mAP50 des masques vaut 95,5 % sur la validation synthétique ; les performances sur les conteneurs réels restent à mesurer.
