@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.env
+*.log
+tests/ui/captures/
+.DS_Store
+Thumbs.db
+# Seul le modèle de segmentation actuellement utilisé est publié.
+vision/models/*
+!vision/models/portique-faces-seg.pt
+!vision/models/portique-faces-seg-info.json

@@ -1,0 +1,14 @@
+{
+  "notebook_url": "https://colab.research.google.com/drive/1SpTkXCU0AdBRFmDoUeZm1mIMrcYigGdS",
+  "drive_folder_url": "https://drive.google.com/drive/u/0/folders/14vDpRcZhz3lb9-_mHg7iNSlaOz-ObXn6",
+  "files_uploaded": [
+    "face-labels.zip",
+    "Portique_Faces_Segmentation.ipynb"
+  ],
+  "gpu": "Tesla T4",
+  "training_started": true,
+  "resumed_from_epoch": 65,
+  "train_images": 246,
+  "val_images": 80,
+  "model": "YOLO11s Segmentation"
+}

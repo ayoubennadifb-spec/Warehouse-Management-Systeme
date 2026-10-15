@@ -1,0 +1,19 @@
+{
+  "model": "YOLO11s-seg",
+  "task": "segment",
+  "classes": ["top", "long_side", "short_side"],
+  "sha256": "18695ED5D4203153191127307D4C3866AC1CBC1E607ECE324D9FBB9F0A44FAC4",
+  "file_size_bytes": 20512676,
+  "training": {
+    "dataset": "synthetic Blender faces; 246 training images and 80 validation images",
+    "images_generated_for_this_test": false,
+    "validation_mask_map50": 0.955153806659453,
+    "validation_mask_map50_95": 0.754205635420002,
+    "validation_faces": {
+      "top": {"precision": 0.996, "recall": 1.0, "median_iou": 0.9778999438042404, "median_area_error_percent": 0.6983289824152233, "p95_area_error_percent": 1.9981679978276212},
+      "long_side": {"precision": 0.888235294117647, "recall": 0.9263803680981595, "median_iou": 0.8978549540347294, "median_area_error_percent": 3.829160530191458, "p95_area_error_percent": 28.440500620708875},
+      "short_side": {"precision": 0.8378378378378378, "recall": 0.9051094890510949, "median_iou": 0.9018693621649286, "median_area_error_percent": 4.09099361557057, "p95_area_error_percent": 19.581083650190106}
+    }
+  },
+  "note": "Synthetic validation only. Real camera tests are still required; area values are visible projected pixels squared."
+}

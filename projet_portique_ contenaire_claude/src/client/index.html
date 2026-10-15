@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Portique conteneurs — jumeau numérique</title>
+    <meta name="description" content="Simulation et mémoire PostgreSQL d'un portique miniature de manutention de conteneurs." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='12' width='26' height='14' rx='2' fill='%233d6fa6'/%3E%3Crect x='3' y='5' width='26' height='4' fill='%23e0882a'/%3E%3C/svg%3E" />
+  </head>
+  <body>
+    <header class="entete">
+      <div class="titre">
+        <h1>Portique conteneurs <span>jumeau numérique · V1</span></h1>
+        <div class="badges" id="badges"></div>
+      </div>
+      <div class="connexions" id="connexions" aria-live="polite"></div>
+      <div class="commandes-sim" id="commandes-sim"></div>
+    </header>
+
+    <div id="bandeaux"></div>
+
+    <section class="kpis" id="kpis" aria-label="Indicateurs"></section>
+
+    <main class="disposition">
+      <section class="scene" aria-label="Espace de travail">
+        <div class="barre-outils">
+          <div class="segmente" role="tablist" aria-label="Vues">
+            <button data-vue="deux" role="tab">3D + dessus</button>
+            <button data-vue="3d" role="tab">3D</button>
+            <button data-vue="2d" role="tab">Dessus</button>
+          </div>
+          <div class="segmente petit" aria-label="Caméra 3D" id="cameras">
+            <button data-camera="iso" title="Vue isométrique">Iso</button>
+            <button data-camera="dessus" title="Vue de dessus">Haut</button>
+            <button data-camera="face" title="Vue de face (suivant Y)">Face</button>
+            <button data-camera="cote" title="Vue de côté (suivant X)">Côté</button>
+          </div>
+          <label class="coche"><input type="checkbox" id="cotes" checked /> Cotes</label>
+        </div>
+        <div class="bandeau-mode" id="bandeau-mode" hidden></div>
+        <div class="vues" id="vues">
+          <div class="vue vue3d" id="vue3d"><span class="lib-vue">Vue 3D isométrique (glisser : tourner · molette : zoom · clic droit : déplacer)</span></div>
+          <div class="vue vue2d" id="vue2d"><span class="lib-vue">Vue du dessus — à l’échelle (mm)</span></div>
+        </div>
+        <div class="contenu-onglet vision-centrale" data-contenu="vision" hidden></div>
+        <div class="contenu-onglet sway-centrale" data-contenu="antisway" hidden></div>
+      </section>
+
+      <aside class="panneau" aria-label="Détails et commandes">
+        <nav class="onglets" role="tablist" id="onglets">
+          <button data-onglet="selection">Sélection</button>
+          <button data-onglet="missions">Missions <span class="compteur" id="cpt-missions"></span></button>
+          <button data-onglet="camions">Camions</button>
+          <button data-onglet="antisway">Anti-ballant</button>
+          <button data-onglet="vision">Vision</button>
+          <button data-onglet="historique">Historique</button>
+          <button data-onglet="parametres">Paramètres</button>
+          <button data-onglet="systeme">Système</button>
+        </nav>
+        <div class="contenu-onglet" data-contenu="selection"></div>
+        <div class="contenu-onglet" data-contenu="missions"></div>
+        <div class="contenu-onglet" data-contenu="camions"></div>
+        <div class="contenu-onglet" id="vision-guide" hidden><h2>Vision en direct</h2><p>La caméra, les rectangles détectés, les mesures en pixels et les réglages sont affichés dans la zone principale.</p><p class="note">Choisissez un autre onglet pour retrouver la vue du portique. La capture continue pendant la navigation.</p></div>
+        <div class="contenu-onglet" id="sway-guide" hidden><h2>Étude anti-ballant</h2><p>Comparez les mouvements avec et sans correction ZVD dans la zone principale.</p><p>Réglez les câbles, la vitesse et l’accélération, puis observez le mouvement et les oscillations après l’arrêt.</p><p class="note">Laboratoire de simulation. Le modèle doit être identifié et validé sur la maquette avant son application aux missions et à Arduino.</p></div>
+        <div class="contenu-onglet" data-contenu="historique"></div>
+        <div class="contenu-onglet" data-contenu="parametres"></div>
+        <div class="contenu-onglet" data-contenu="systeme"></div>
+      </aside>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

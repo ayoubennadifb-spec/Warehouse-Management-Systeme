@@ -1,0 +1,4 @@
+ultralytics==8.4.174
+openai-clip==1.0.1
+torch==2.14.1
+torchvision==0.29.1

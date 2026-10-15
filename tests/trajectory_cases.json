@@ -1,0 +1,8 @@
+[
+  {"name":"trajet libre", "start":{"x":100,"y":210,"z":0}, "end":{"x":700,"y":210,"z":0}, "obstacles":[], "length":620, "height":10},
+  {"name":"contournement avec empreinte de charge", "start":{"x":100,"y":210,"z":0}, "end":{"x":700,"y":210,"z":0}, "obstacles":[{"x":400,"y":200,"length":100,"width":100,"top":1000}], "length":750, "height":10},
+  {"name":"survol plus court que detour", "start":{"x":100,"y":210,"z":0}, "end":{"x":700,"y":210,"z":0}, "obstacles":[{"x":400,"y":200,"length":100,"width":100,"top":50}], "length":720, "height":60},
+  {"name":"mur infranchissable sous plafond", "start":{"x":100,"y":210,"z":0}, "end":{"x":700,"y":210,"z":0}, "obstacles":[{"x":400,"y":0,"length":100,"width":500,"top":1000}], "error":true},
+  {"name":"prise dans obstacle refusee", "start":{"x":100,"y":210,"z":0}, "end":{"x":700,"y":210,"z":0}, "obstacles":[{"x":120,"y":220,"length":100,"width":100,"top":50}], "error":true},
+  {"name":"contact avec pile support autorise", "start":{"x":100,"y":210,"z":50}, "end":{"x":700,"y":210,"z":0}, "obstacles":[{"x":100,"y":210,"length":100,"width":50,"top":50}], "length":670, "height":60}
+]

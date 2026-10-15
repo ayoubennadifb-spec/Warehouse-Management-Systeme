@@ -1,0 +1,9 @@
+{
+  "h_min": 90, "h_max": 135,
+  "s_min": 90, "s_max": 255,
+  "v_min": 45, "v_max": 255,
+  "min_area": 2000, "min_side_area": 500, "max_area": 500000,
+  "min_ratio": 1.4, "max_ratio": 2.8,
+  "rectangularity": 0.8, "kernel": 3,
+  "roi": {"x": 0, "y": 0, "width": 100, "height": 100}
+}

@@ -1,0 +1,10 @@
+.git
+.env
+.venv
+node_modules
+.openai
+.sites-runtime
+tests
+.runtime
+.local
+.backups

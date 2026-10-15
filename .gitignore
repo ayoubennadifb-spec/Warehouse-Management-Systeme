@@ -1,0 +1,48 @@
+# Secrets et données locales
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.log
+*.pem
+*.key
+credentials*.json
+db-admin.json
+
+# Dépendances et environnements
+.venv/
+venv/
+node_modules/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.sites-runtime/
+.runtime/
+.local/
+.backups/
+.chart-data-*/
+
+# Données, entraînements et livrables générés
+/colab_vision/portique_dataset/
+/colab_vision/face_segmentation/
+/weights/
+/output/
+/tmp/
+/livrables/
+*.zip
+*.pt
+*.onnx
+*.engine
+*.pptx
+*.pdf
+*.blend
+*.blend1
+*.mp4
+*.avi
+*.mov
+*.mkv
+tests/ui/captures/
+
+# Système
+.DS_Store
+Thumbs.db

@@ -1,0 +1,42 @@
+{
+  "libelle": "Plan initial — hypothèses de travail (non validé)",
+  "espace": {
+    "longueur_x_mm": 1000,
+    "largeur_y_mm": 500
+  },
+  "zones": {
+    "transport_longueur_x_mm": 200,
+    "transport_cote": "X_MAX"
+  },
+  "conteneur": {
+    "longueur_mm": 100,
+    "largeur_mm": 50,
+    "hauteur_mm": 50
+  },
+  "grille": {
+    "nb_positions_x": 7,
+    "nb_positions_y": 7,
+    "nb_niveaux_max": 3,
+    "marge_x_mm": null,
+    "espacement_x_mm": null,
+    "marge_y_mm": null,
+    "espacement_y_mm": null
+  },
+  "capacite": {
+    "nb_conteneurs_max": 60,
+    "perimetre": "ZONE"
+  },
+  "camion": {
+    "cabine_longueur_mm": 50,
+    "cabine_largeur_mm": 50,
+    "cabine_hauteur_mm": 50,
+    "plateau_longueur_mm": 100,
+    "plateau_largeur_mm": 50,
+    "plateau_hauteur_mm": 20
+  },
+  "postes": {
+    "nb_postes": 4,
+    "cote_cabine": "X_MAX",
+    "positions": null
+  }
+}

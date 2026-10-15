@@ -1,0 +1,11 @@
+{
+  "_commentaire": "Valeurs de SIMULATION uniquement (illustratives, non mesurées). Elles ne décrivent pas la mécanique retenue.",
+  "degagement_mm": 30,
+  "vitesse_xy_mm_s": 150,
+  "vitesse_z_mm_s": 80,
+  "duree_prise_s": 0.8,
+  "duree_depot_s": 0.8,
+  "position_repos": { "x_mm": 800, "y_mm": 250 },
+  "periode_tick_ms": 50,
+  "frequence_telemetrie_hz": 15
+}
