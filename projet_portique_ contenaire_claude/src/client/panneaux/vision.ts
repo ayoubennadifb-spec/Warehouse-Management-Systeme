@@ -1,4 +1,3 @@
-import { rendreVisionDemo } from './vision-demo.ts';
 import { brancherCalibration } from './calibration.ts';
 /** Persistent controls and pixel observations, independent of inventory mutations. */
 import { api } from '../api.ts';
@@ -11,10 +10,6 @@ const fields: [string, string, number, number, number][] = [
 ];
 
 export function rendreVision(root: HTMLElement): void {
-  if (import.meta.env.VITE_PORTFOLIO_DEMO === 'true' || window.location.hostname === 'warehouse-digital-twin-demo.onrender.com') {
-    rendreVisionDemo(root);
-    return;
-  }
   if (root.dataset.initialized) return;
   root.dataset.initialized = 'true';
   let settings: Settings | null = null;
