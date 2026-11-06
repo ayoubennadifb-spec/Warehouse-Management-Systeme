@@ -1,7 +1,8 @@
 import { existsSync } from 'node:fs';
 /** Point d'entrée du serveur local : PostgreSQL → règles métier → API + SSE → interface. */
 import { configServeur, configSimulation, urlSansSecret } from './config.ts';
-import { creerPool, migrer } from './db.ts';
+import { creerPool, migrer, une } from './db.ts';
+import { semerDemo } from './demo.ts';
 import { Diffuseur } from './temps-reel.ts';
 import { SimulationSource } from './sources/simulation.ts';
 import { SourceMateriel } from './sources/materiel.ts';
@@ -15,6 +16,14 @@ export async function demarrerServeur() {
     throw new Error(`Connexion PostgreSQL impossible (${urlSansSecret(cfg.databaseUrl)}) : ${e.message}`);
   });
   await migrer(pool, (m) => console.log(m));
+  // Seed an empty dedicated cloud database once, never overwrite existing state.
+  if (process.env.PORTFOLIO_DEMO === 'true') {
+    const initialisee = await une(pool, 'SELECT 1 FROM version_plan LIMIT 1');
+    if (!initialisee) {
+      const demo = await semerDemo(pool);
+      console.log(`Portfolio demo initialized with ${demo.conteneurs} fictional containers.`);
+    }
+  }
   const diffuseur = new Diffuseur(cfg.databaseUrl, pool);
   await diffuseur.demarrer();
   const source: SourceEvenements = cfg.mode === 'SIMULATION' ? new SimulationSource(pool, diffuseur, configSimulation()) : new SourceMateriel(diffuseur);
