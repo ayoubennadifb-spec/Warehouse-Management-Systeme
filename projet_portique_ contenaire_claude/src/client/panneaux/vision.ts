@@ -11,7 +11,7 @@ const fields: [string, string, number, number, number][] = [
 ];
 
 export function rendreVision(root: HTMLElement): void {
-  if (import.meta.env.VITE_PORTFOLIO_DEMO === 'true') {
+  if (import.meta.env.VITE_PORTFOLIO_DEMO === 'true' || window.location.hostname === 'warehouse-digital-twin-demo.onrender.com') {
     rendreVisionDemo(root);
     return;
   }
