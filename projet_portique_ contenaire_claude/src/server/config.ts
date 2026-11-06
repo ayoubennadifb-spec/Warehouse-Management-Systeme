@@ -26,7 +26,10 @@ export function configServeur(): ConfigServeur {
   if (!databaseUrl) {
     throw new Error('DATABASE_URL manquant : copiez .env.example en .env ou lancez « npm run db:init ».');
   }
-  const mode = (process.env.SOURCE_EVENEMENTS ?? 'SIMULATION').toUpperCase();
+  // Public portfolio deployments must never connect to physical hardware.
+  const mode = process.env.PORTFOLIO_DEMO === 'true'
+    ? 'SIMULATION'
+    : (process.env.SOURCE_EVENEMENTS ?? 'SIMULATION').toUpperCase();
   if (mode !== 'SIMULATION' && mode !== 'MATERIEL') throw new Error(`SOURCE_EVENEMENTS invalide : ${mode}`);
   return {
     databaseUrl,

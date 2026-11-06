@@ -1,0 +1,26 @@
+# Free portfolio deployment: Node/Fastify + Vite on Render, PostgreSQL on Supabase.
+# This Blueprint intentionally does NOT provision a paid Render database.
+services:
+  - type: web
+    name: warehouse-digital-twin-demo
+    runtime: node
+    plan: free
+    region: frankfurt
+    rootDir: "projet_portique_ contenaire_claude"
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
+    envVars:
+      - key: NODE_VERSION
+        value: "22.18.0"
+      - key: HOST
+        value: "0.0.0.0"
+      - key: SOURCE_EVENEMENTS
+        value: SIMULATION
+      - key: PORTFOLIO_DEMO
+        value: "true"
+      # Use Supabase's session pooler (port 5432), not transaction mode:
+      # the SSE server relies on PostgreSQL LISTEN/NOTIFY.
+      - key: DATABASE_URL
+        sync: false

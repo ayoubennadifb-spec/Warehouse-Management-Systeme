@@ -66,6 +66,22 @@ export interface Services {
 export async function construireApp(s: Services, opts: { journal?: boolean } = {}): Promise<FastifyInstance> {
   const app = Fastify({ logger: opts.journal ? { level: 'warn' } : false });
   const { pool, diffuseur, source } = s;
+  // Never make camera, file-upload or hardware-control endpoints public.
+  // The portfolio instance remains interactive for warehouse simulations only.
+  if (process.env.PORTFOLIO_DEMO === 'true') {
+    app.addHook('onRequest', async (req, reply) => {
+      const url = req.url.split('?')[0];
+      if (url.startsWith('/api/vision/') || url.startsWith('/api/materiel/') ||
+          url === '/api/confirmations' ||
+          /^\/api\/missions\/\d+\/demarrer$/.test(url) ||
+          url === '/api/hardware/self-test') {
+        return reply.status(403).send({ erreur: {
+          code: 'INDISPONIBLE_DEMO',
+          message: 'Fonction désactivée sur la démonstration publique (simulation uniquement).',
+        } });
+      }
+    });
+  }
   await registerVision(app);
   const tx = <T>(f: Parameters<typeof transaction<T>>[1]) => transaction<T>(pool, f);
 
